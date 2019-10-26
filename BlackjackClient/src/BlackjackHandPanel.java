@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * BlackjackHandPanel objects are panels that contain the cards, hand value, bet amount, and
- * hit, stand, split pairs, and double down buttons for a Blackjack hand.
- *
- * @author Jordan Segalman
+ *BlackjackHandPanel la panel chứa thẻ, giá trị hand, tiền đặt cược, các button (hit, stand, split, pairs, ..))
  */
 
 public class BlackjackHandPanel extends JPanel implements ActionListener {
@@ -25,7 +22,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     private JButton doubleDownButton;
 
     /**
-     * Constructor for BlackjackHandPanel object.
+     * Constructor for BlackjackHandPanl
      *
      * @param controller Client GUI controller
      */
@@ -37,7 +34,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Sets up the panel.
+     * Thiết lập cho Panel
      */
 
     private void setupPanel() {
@@ -63,11 +60,11 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
         add(handMessageLabel, constraints);
         JPanel hitStandButtonsPanel = new JPanel();
         hitStandButtonsPanel.setBackground(CARD_TABLE_GREEN);
-        hitButton = new JButton("Hit");
+        hitButton = new JButton("Rút bài");
         hitButton.setPreferredSize(BUTTONS_DIMENSION);
         hitButton.setEnabled(false);
         hitButton.setVisible(false);
-        standButton = new JButton("Stand");
+        standButton = new JButton("Dừng");
         standButton.setPreferredSize(BUTTONS_DIMENSION);
         standButton.setEnabled(false);
         standButton.setVisible(false);
@@ -77,11 +74,11 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
         add(hitStandButtonsPanel, constraints);
         JPanel yesNoButtonsPanel = new JPanel();
         yesNoButtonsPanel.setBackground(CARD_TABLE_GREEN);
-        splitPairsButton = new JButton("Split Pairs");
+        splitPairsButton = new JButton("Tách");
         splitPairsButton.setPreferredSize(BUTTONS_DIMENSION);
         splitPairsButton.setEnabled(false);
         splitPairsButton.setVisible(false);
-        doubleDownButton = new JButton("Double Down");
+        doubleDownButton = new JButton("Nhân Đôi");
         doubleDownButton.setPreferredSize(BUTTONS_DIMENSION);
         doubleDownButton.setEnabled(false);
         doubleDownButton.setVisible(false);
@@ -92,7 +89,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Sets up the action listeners.
+     * Thiết lập các action Listenner
      */
 
     private void setupActionListeners() {
@@ -103,7 +100,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Shows changes made to the panel.
+     * Hiển thị các thay đỏi đến panel
      */
 
     private void showChanges() {
@@ -113,24 +110,24 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Sets the hand value label to the given hand value.
+     * Thiết lập các hand value label thành text
      *
      * @param handValue Hand value to set label to
      */
 
     public void setHandValueLabel(String handValue) {
-        handValueLabel.setText("Hand Value: " + handValue);
+        handValueLabel.setText("Điểm: " + handValue);
         showChanges();
     }
 
     /**
-     * Sets the hand bet label to the given bet.
+     * Giá trị cược
      *
      * @param bet Bet to set label to
      */
 
     public void setHandBet(String bet) {
-        handBetLabel.setText("Bet: $" + bet);
+        handBetLabel.setText("Cược: $" + bet);
         showChanges();
     }
 
@@ -155,7 +152,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Enables the hit and stand buttons.
+     * Tắt hit and stand button
      */
 
     public void enableHitStand() {
@@ -233,7 +230,7 @@ public class BlackjackHandPanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Enables and shows or disables and hides the stand button.
+     * Bật và tắt button Stand.
      *
      * @param b If true, enables and shows the stand button; otherwise, disables and hides the stand button
      */

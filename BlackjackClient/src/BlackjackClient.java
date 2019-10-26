@@ -1,11 +1,6 @@
 import javax.swing.SwingWorker;
 import java.util.concurrent.ExecutionException;
 
-/**
- * BlackjackClient objects connect to the Blackjack server and coordinate between the client model and view.
- *
- * @author Jordan Segalman
- */
 
 public class BlackjackClient {
     private static final String DEFAULT_SERVER_ADDRESS = "127.0.0.1";   // default server address
@@ -52,6 +47,7 @@ public class BlackjackClient {
             @Override
             public void done() {
                 try {
+                    System.out.println(get());
                     changeView(get());
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
@@ -130,7 +126,9 @@ public class BlackjackClient {
                 }
                 break;
             case "NEWDEALERCARD":
+                System.out.println(serverMessageComponents[1]);
                 view.addDealerCard(model.getCardImageLabel(serverMessageComponents[2]));
+              
                 getServerMessage();
                 break;
             case "GETINSURANCEBET":
@@ -213,6 +211,7 @@ public class BlackjackClient {
                 }
                 break;
             case "NEWPLAYERCARD":
+        
                 model.getPlayerHandPanel(Integer.parseInt(serverMessageComponents[2])).addCard(model.getCardImageLabel(serverMessageComponents[3]));
                 getServerMessage();
                 break;

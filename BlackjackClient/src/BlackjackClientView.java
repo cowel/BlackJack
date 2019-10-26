@@ -17,10 +17,10 @@ public class BlackjackClientView extends JFrame implements ActionListener {
     private static final Dimension PLAYER_HANDS_PANEL_DIMENSION = new Dimension(930, 265);
     private static final Dimension BUTTONS_DIMENSION = new Dimension(110, 25);
     private static final int BET_FIELD_SIZE = 5;
-    private static final Color CARD_TABLE_GREEN = new Color(37, 93, 54);
-    private static final Color TEXT_COLOR = new Color(230, 230, 230);
-    private static final Float WELCOME_LABEL_SIZE = 24.0f;
-    private static final Float HANDS_LABEL_SIZE = 18.0f;
+    private static final Color CARD_TABLE_GREEN = new Color(25, 218, 87);
+    private static final Color TEXT_COLOR = new Color(4, 4, 4);
+    private static final Float WELCOME_LABEL_SIZE = 30.0f;
+    private static final Float HANDS_LABEL_SIZE = 22.0f;
     private BlackjackClient controller; // client GUI controller
 
     // welcome panel components
@@ -152,7 +152,7 @@ public class BlackjackClientView extends JFrame implements ActionListener {
         constraints.gridx = 0;
         constraints.gridy = 0;
         welcomePanel.add(welcomeLabel, constraints);
-        welcomeWaitingLabel = new JLabel("Waiting for other players to join.");
+        welcomeWaitingLabel = new JLabel("Vui lòng chờ những người chơi khác.");
         welcomeWaitingLabel.setForeground(TEXT_COLOR);
         welcomeWaitingLabel.setVisible(false);
         constraints.gridy = 1;
@@ -191,7 +191,7 @@ public class BlackjackClientView extends JFrame implements ActionListener {
         betMessageLabel.setForeground(TEXT_COLOR);
         constraints.gridy = 2;
         betPanel.add(betMessageLabel, constraints);
-        betButton = new JButton("Place Bet");
+        betButton = new JButton("Cược");
         betButton.setPreferredSize(BUTTONS_DIMENSION);
         constraints.gridy = 3;
         betPanel.add(betButton, constraints);
@@ -199,7 +199,7 @@ public class BlackjackClientView extends JFrame implements ActionListener {
         betMoneyLabel.setForeground(TEXT_COLOR);
         constraints.gridy = 4;
         betPanel.add(betMoneyLabel, constraints);
-        betWaitingLabel = new JLabel("Waiting for other players to place their bets.");
+        betWaitingLabel = new JLabel("Chờ đợi người chơi khác đặt cược.");
         betWaitingLabel.setForeground(TEXT_COLOR);
         betWaitingLabel.setVisible(false);
         constraints.gridy = 5;
@@ -214,7 +214,7 @@ public class BlackjackClientView extends JFrame implements ActionListener {
      */
 
     public void setMinimumBetLabel(String minimumBet) {
-        minimumBetLabel.setText("The minimum bet is $" + minimumBet + ". How much would you like to bet?");
+        minimumBetLabel.setText("Cược tối thiểu $" + minimumBet + ". Bạn muốn cược bao nhiêu?");
         showChanges();
     }
 

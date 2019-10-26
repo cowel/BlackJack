@@ -9,12 +9,12 @@ import java.net.Socket;
  */
 
 public class BlackjackServer {
-    private static final int DEFAULT_PORT = 8000;                      // default server port
-    private static final int DEFAULT_PLAYERS_PER_TABLE = 1;             // default number of players per table
+    private static final int DEFAULT_PORT = 8000;                       // default server port
+    private static final int DEFAULT_PLAYERS_PER_TABLE = 2;             // default number of players per table
     private static final int DEFAULT_STARTING_MONEY = 2500;             // default amount of money players start with
     private static final int DEFAULT_MINIMUM_BET = 500;                 // default minimum player bet
-    private static final int DEFAULT_NUMBER_OF_DECKS = 6;               // default number of decks in shoe
-    private static final int DEFAULT_MINIMUM_CARDS_BEFORE_SHUFFLE = 78; // default minimum number of cards remaining before shuffling the shoe
+    private static final int DEFAULT_NUMBER_OF_DECKS = 3;               // default number of decks in shoe
+    private static final int DEFAULT_MINIMUM_CARDS_BEFORE_SHUFFLE = 52; // default minimum number of cards remaining before shuffling the shoe
     private int serverPort;                                             // server port
     private int playersPerTable;                                        // number of players per table
     private int startingMoney;                                          // amount of money players start with

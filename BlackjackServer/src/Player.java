@@ -281,8 +281,8 @@ public class Player implements Runnable {
             case "Double Down":
                 doubleDown(hand);
                 break;
-            case "Hit":
-            case "Stand":
+            case "Rút bài":
+            case "Dừng":
                 hitStand(hand);
                 break;
         }
@@ -303,7 +303,7 @@ public class Player implements Runnable {
             out.println("SERVERMESSAGE--HANDVALUE--" + playerHands.indexOf(hand) + "--" + hand.blackjackValue());
             out.println("SERVERMESSAGE--TURNOPTION--BOTH--" + playerHands.indexOf(hand));
             getChoice();
-            if (!choice.equals("Hit") && !choice.equals("Stand") && !choice.equals("Split Pairs") && !choice.equals("Double Down")) {
+            if (!choice.equals("Rút Bài") && !choice.equals("Dừng") && !choice.equals("Split Pairs") && !choice.equals("Double Down")) {
                 out.println("SERVERMESSAGE--TURNOPTIONERROR--" + playerHands.indexOf(hand));
                 receivedChoice = false;
             }
@@ -322,7 +322,7 @@ public class Player implements Runnable {
             out.println("SERVERMESSAGE--HANDVALUE--" + playerHands.indexOf(hand) + "--" + hand.blackjackValue());
             out.println("SERVERMESSAGE--TURNOPTION--SPLITPAIRS--" + playerHands.indexOf(hand));
             getChoice();
-            if (!choice.equals("Hit") && !choice.equals("Stand") && !choice.equals("Split Pairs")) {
+            if (!choice.equals("Rút bài") && !choice.equals("Dừng") && !choice.equals("Split Pairs")) {
                 out.println("SERVERMESSAGE--TURNOPTIONERROR--" + playerHands.indexOf(hand));
                 receivedChoice = false;
             }
@@ -341,7 +341,7 @@ public class Player implements Runnable {
             out.println("SERVERMESSAGE--HANDVALUE--" + playerHands.indexOf(hand) + "--" + hand.blackjackValue());
             out.println("SERVERMESSAGE--TURNOPTION--DOUBLEDOWN--" + playerHands.indexOf(hand));
             getChoice();
-            if (!choice.equals("Hit") && !choice.equals("Stand") && !choice.equals("Double Down")) {
+            if (!choice.equals("Rút bài") && !choice.equals("Dừng") && !choice.equals("Double Down")) {
                 out.println("SERVERMESSAGE--TURNOPTIONERROR--" + playerHands.indexOf(hand));
                 receivedChoice = false;
             }
@@ -360,7 +360,7 @@ public class Player implements Runnable {
             out.println("SERVERMESSAGE--HANDVALUE--" + playerHands.indexOf(hand) + "--" + hand.blackjackValue());
             out.println("SERVERMESSAGE--TURNOPTION--NEITHER--" + playerHands.indexOf(hand));
             getChoice();
-            if (!choice.equals("Hit") && !choice.equals("Stand")) {
+            if (!choice.equals("Rút bài") && !choice.equals("Dừng")) {
                 out.println("SERVERMESSAGE--TURNOPTIONERROR--" + playerHands.indexOf(hand));
                 receivedChoice = false;
             }
@@ -443,13 +443,13 @@ public class Player implements Runnable {
      */
 
     private void hitStand(BlackjackHand hand) {
-        if (choice.equals("Hit")) {
+        if (choice.equals("Rút bài")) {
             Card newCard = table.dealCard();
             hand.addCard(newCard);
             out.println("SERVERMESSAGE--NEWPLAYERCARD--" + playerHands.indexOf(hand) + "--" + newCard);
-            while (choice.equals("Hit") && hand.blackjackValue() <= MAXIMUM_SCORE) {
+            while (choice.equals("Rút bài") && hand.blackjackValue() <= MAXIMUM_SCORE) {
                 neitherOption(hand);
-                if (choice.equals("Hit")) {
+                if (choice.equals("Rút bài")) {
                     newCard = table.dealCard();
                     hand.addCard(newCard);
                     out.println("SERVERMESSAGE--NEWPLAYERCARD--" + playerHands.indexOf(hand) + "--" + newCard);
@@ -522,9 +522,6 @@ public class Player implements Runnable {
         }
     }
 
-    /**
-     * Determines whether or not the player wants to keep playing.
-     */
 
     private void getContinuePlaying() {
         if (money >= table.minimumBet()) {
